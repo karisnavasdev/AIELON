@@ -204,6 +204,10 @@ img {
     animation: none;
   }
 
+  .listing-badge-top {
+    animation: none;
+  }
+
   #ai-canvas {
     display: none;
   }
@@ -407,6 +411,69 @@ img {
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero-listings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.listing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 140, 0, 0.45);
+  background: rgba(255, 69, 0, 0.1);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.listing-badge:hover {
+  border-color: var(--orange-bright);
+  background: rgba(255, 69, 0, 0.18);
+  box-shadow: 0 0 24px rgba(255, 107, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.listing-icon {
+  display: flex;
+  color: var(--orange-glow);
+  flex-shrink: 0;
+}
+
+.listing-rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 22px;
+  padding: 0 6px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--orange), var(--orange-bright));
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(255, 69, 0, 0.6);
+  flex-shrink: 0;
+}
+
+.listing-badge-top {
+  border-color: rgba(255, 140, 0, 0.6);
+  animation: listingGlow 3s ease-in-out infinite;
+}
+
+@keyframes listingGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(255, 69, 0, 0.15); }
+  50% { box-shadow: 0 0 28px rgba(255, 107, 0, 0.45); }
 }
 
 .hero-headline {
@@ -1308,6 +1375,16 @@ img {
 @media (max-width: 480px) {
   .hero-actions {
     flex-direction: column;
+  }
+
+  .hero-listings {
+    flex-direction: column;
+  }
+
+  .listing-badge {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 
   .btn {
