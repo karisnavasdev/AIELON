@@ -14,6 +14,17 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div class="ai-bg" aria-hidden="true">
+    <canvas id="ai-canvas"></canvas>
+    <div class="ai-orb ai-orb-1"></div>
+    <div class="ai-orb ai-orb-2"></div>
+    <div class="ai-orb ai-orb-3"></div>
+    <div class="ai-orb ai-orb-4"></div>
+    <div class="ai-beam ai-beam-1"></div>
+    <div class="ai-beam ai-beam-2"></div>
+    <div class="ai-beam ai-beam-3"></div>
+    <div class="ai-vignette"></div>
+  </div>
   <div class="scanlines" aria-hidden="true"></div>
   <div class="grid-bg" aria-hidden="true"></div>
 
@@ -29,6 +40,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#features">Features</a></li>
+        <li><a href="#chart">Chart</a></li>
         <li><a href="#token">Token</a></li>
         <li><a href="#trade" class="nav-cta">Trade</a></li>
         <li>
@@ -142,6 +154,7 @@
     </section>
 
     <section id="features" class="section features">
+      <div class="section-bg section-bg-systems" aria-hidden="true"></div>
       <div class="container">
         <div class="section-header center">
           <span class="section-tag">// 002 — CAPABILITIES</span>
@@ -180,12 +193,41 @@
       </div>
     </section>
 
+    <section id="chart" class="section chart">
+      <div class="section-bg section-bg-chart" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-header center">
+          <span class="section-tag">// 003 — LIVE CHART</span>
+          <h2 class="section-title">$AIELON <span class="accent">Chart</span></h2>
+          <p class="chart-desc">Real-time price action powered by DexScreener on Solana.</p>
+        </div>
+        <div class="chart-panel">
+          <div class="chart-frame">
+            <div class="frame-corner tl"></div>
+            <div class="frame-corner tr"></div>
+            <div class="frame-corner bl"></div>
+            <div class="frame-corner br"></div>
+            <iframe
+              src="https://dexscreener.com/solana/elonpump?embed=1&theme=dark&info=0&trades=0"
+              title="AIELON DexScreener Chart"
+              class="chart-embed"
+              allow="clipboard-write"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <a href="https://dexscreener.com/solana/elonpump" target="_blank" rel="noopener noreferrer" class="chart-link">
+            Open full chart on DexScreener →
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section id="token" class="section token">
       <div class="container">
         <div class="token-panel">
           <div class="token-glow" aria-hidden="true"></div>
           <div class="section-header">
-            <span class="section-tag">// 003 — TOKEN</span>
+            <span class="section-tag">// 004 — TOKEN</span>
             <h2 class="section-title">$AIELON on <span class="accent">Solana</span></h2>
           </div>
           <p class="token-desc">Join the AIELON ecosystem. Trade, hold, and be part of the next wave of AI-powered innovation on Solana.</p>
