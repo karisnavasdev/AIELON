@@ -26,26 +26,28 @@ function initNav() {
 }
 
 function initCopyCA() {
-  const btn = document.getElementById('copy-ca');
-  const address = document.getElementById('ca-address');
+  document.querySelectorAll('.ca-box').forEach(box => {
+    const btn = box.querySelector('.btn-copy');
+    const address = box.querySelector('.ca-address');
 
-  if (!btn || !address) return;
+    if (!btn || !address) return;
 
-  btn.addEventListener('click', async () => {
-    const text = address.textContent.trim();
+    btn.addEventListener('click', async () => {
+      const text = address.textContent.trim();
 
-    try {
-      await navigator.clipboard.writeText(text);
-      showCopied(btn);
-    } catch {
-      const range = document.createRange();
-      range.selectNode(address);
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
-      document.execCommand('copy');
-      window.getSelection().removeAllRanges();
-      showCopied(btn);
-    }
+      try {
+        await navigator.clipboard.writeText(text);
+        showCopied(btn);
+      } catch {
+        const range = document.createRange();
+        range.selectNode(address);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+        showCopied(btn);
+      }
+    });
   });
 }
 
