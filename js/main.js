@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initScrollReveal();
   initAiBackground();
+  initTweetEmbed();
 });
 
 function initNav() {
@@ -123,6 +124,36 @@ function initScrollReveal() {
   }, { threshold: 0.15 });
 
   elements.forEach(el => observer.observe(el));
+}
+
+function initTweetEmbed() {
+  const container = document.getElementById('tweet-embed-container');
+  if (!container) return;
+
+  const tweetId = '2065880352678134009';
+
+  const renderTweet = () => {
+    const width = Math.min(550, container.parentElement?.clientWidth || 550);
+
+    window.twttr.widgets.createTweet(tweetId, container, {
+      theme: 'dark',
+      align: 'left',
+      dnt: true,
+      conversation: 'none',
+      width,
+    });
+  };
+
+  if (window.twttr) {
+    window.twttr.ready(renderTweet);
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.src = 'https://platform.twitter.com/widgets.js';
+  script.async = true;
+  script.onload = () => window.twttr?.ready(renderTweet);
+  document.body.appendChild(script);
 }
 
 function initAiBackground() {
